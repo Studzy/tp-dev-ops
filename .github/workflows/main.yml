@@ -19,7 +19,8 @@ jobs:
   build:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
-
+    env:
+      JHI_E2E_HEADLESS: 'true'
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
            - uses: actions/checkout@v2
@@ -43,4 +44,4 @@ jobs:
            - name: lance les tests
              run: npm run ci:e2e:run
            - name: end le docker et nettoie
-             run: npm run ci:e2e:run
+             run: npm run ci:e2e:teardown
